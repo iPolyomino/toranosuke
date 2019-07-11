@@ -1,0 +1,29 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "tsconfigRootDir": "."
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier/react",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "react/prop-types": 0
+  }
+}
