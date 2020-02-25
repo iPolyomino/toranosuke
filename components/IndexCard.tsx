@@ -14,7 +14,7 @@ const IndexCard: React.FunctionComponent<Props> = ({ title, description }) => (
       <Typography variant="h5" component="h2">
         {title}
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="body1" component="p">
         {description}
       </Typography>
     </CardContent>

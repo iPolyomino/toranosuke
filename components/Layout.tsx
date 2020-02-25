@@ -16,10 +16,7 @@ const Layout: React.FunctionComponent<Props> = ({
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     {children}
-    <footer>
-      <hr />
-      <span>I&apos;m here to stay (Footer)</span>
-    </footer>
+    <footer></footer>
   </div>
 );
 
