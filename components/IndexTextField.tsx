@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 
 interface Props {
-  updateText: Function;
+  updateText: (arg1: string) => void;
 }
 
 const IndexTextField: React.FunctionComponent<Props> = ({ updateText }) => {
