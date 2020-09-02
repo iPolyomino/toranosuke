@@ -16,14 +16,14 @@ const IndexPage: NextPage = () => {
   useEffect(() => {
     const url =
       "https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec";
+    if (text === "") {
+      setGtext("");
+      return;
+    }
     fetch(`${url}?text=${text}&source=ja&target=en`)
       .then((res) => res.json())
       .then((result) => {
-        if (result.code === 200) {
-          setGtext(result.text);
-        } else {
-          setGtext("");
-        }
+        setGtext(result.text);
       });
   });
 
