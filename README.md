@@ -24,6 +24,10 @@ yarn
 yarn dev
 ```
 
+## ライセンス
+
+[MIT](https://github.com/iPolyomino/toranosuke/blob/master/LICENSE)
+
 ## 作者
 
 [Hagi](https://github.com/iPolyomino)
