@@ -7,10 +7,8 @@ import { NextPage } from "next";
 
 const IndexPage: NextPage = () => {
   const [text, setText] = useState("");
-  const [googleappstext, setGoogleappstext] = useState("");
-  const [googletext, setGoogletext] = useState("");
-  const [bingtext, setBingtext] = useState("");
-  const [deepltext, setDeepltext] = useState("");
+  const [googleEnText, setGoogleEnText] = useState("");
+  const [googleJaText, setGoogleJaText] = useState("");
 
   const updateText = (text: string): void => {
     setText(text);
@@ -18,10 +16,8 @@ const IndexPage: NextPage = () => {
 
   useEffect(() => {
     if (text === "") {
-      setGoogleappstext("");
-      setGoogletext("");
-      setBingtext("");
-      setDeepltext("");
+      setGoogleEnText("");
+      setGoogleJaText("");
       return;
     }
 
@@ -29,32 +25,21 @@ const IndexPage: NextPage = () => {
       `https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec?text=${text}&source=ja&target=en`
     )
       .then((res) => res.json())
-      .then((result) => setGoogleappstext(result.text));
+      .then((result) => setGoogleEnText(result.text));
 
-    fetch(`https://trans-puppet.herokuapp.com/google?text=${text}`)
+    fetch(
+      `https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec?text=${text}&source=en&target=ja`
+    )
       .then((res) => res.json())
-      .then((result) => setGoogletext(result.text))
-      .catch((e) => console.error(e));
-
-    fetch(`https://trans-puppet.herokuapp.com/bing?text=${text}`)
-      .then((res) => res.json())
-      .then((result) => setBingtext(result.text))
-      .catch((e) => console.error(e));
-
-    fetch(`https://trans-puppet.herokuapp.com/deepl?text=${text}`)
-      .then((res) => res.json())
-      .then((result) => setDeepltext(result.text))
-      .catch((e) => console.error(e));
+      .then((result) => setGoogleJaText(result.text));
   });
 
   return (
     <Layout title="とらのすけ">
       <Typography variant="h3">とらのすけ - toranosuke</Typography>
       <IndexTextField updateText={updateText} />
-      <IndexCard title="Google 翻訳 (GAS)" description={googleappstext} />
-      <IndexCard title="Google 翻訳" description={googletext} />
-      <IndexCard title="Bing 翻訳" description={bingtext} />
-      <IndexCard title="Deepl" description={deepltext} />
+      <IndexCard title="Google 翻訳 (Ja->En)" description={googleEnText} />
+      <IndexCard title="Google 翻訳 (En->Ja)" description={googleJaText} />
     </Layout>
   );
 };
