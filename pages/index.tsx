@@ -22,13 +22,19 @@ const IndexPage: NextPage = () => {
     }
 
     fetch(
-      `https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec?text=${text}&source=ja&target=en`
+      `https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec?text=${text}&source=ja&target=en`,
+      {
+        mode: "cors",
+      }
     )
       .then((res) => res.json())
       .then((result) => setGoogleEnText(result.text));
 
     fetch(
-      `https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec?text=${text}&source=en&target=ja`
+      `https://script.google.com/macros/s/AKfycbwW5mcKD7UaFboSHFML6fcTUk7EmjrCI5lNEMATGV_-o2sB2Rs/exec?text=${text}&source=en&target=ja`,
+      {
+        mode: "cors",
+      }
     )
       .then((res) => res.json())
       .then((result) => setGoogleJaText(result.text));
