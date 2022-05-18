@@ -10,7 +10,7 @@ const IndexTextField: React.FunctionComponent<Props> = ({ updateText }) => {
     <TextField
       variant="outlined"
       multiline
-      rows="5"
+      minRows="5"
       fullWidth={true}
       onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
         updateText(e.target.value);
