@@ -10,7 +10,7 @@ https://github.com/iPolyomino/google_translate_api
 
 ## 動作環境
 
-- Node.js 12.x
+- Node.js 16.x
 - yarn 1.22.x
 - Google App Engine
 - Google Cloud Build
