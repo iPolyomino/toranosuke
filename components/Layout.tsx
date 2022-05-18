@@ -3,6 +3,7 @@ import Head from "next/head";
 
 interface Props {
   title?: string;
+  children?: React.ReactNode;
 }
 
 const Layout: React.FunctionComponent<Props> = ({
